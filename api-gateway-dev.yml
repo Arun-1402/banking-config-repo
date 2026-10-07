@@ -41,6 +41,12 @@ spring:
         - path=/auth/**,/oauth2/**
         filters:
         - StripPrefix=1
+      - id: customer-service
+        uri: lb://CUSTOMER-SERVICE
+        predicates:
+        - path=/api/customers/**
+        filters:
+        - StripPrefix=1
 eureka:
   client:
     service-url:
